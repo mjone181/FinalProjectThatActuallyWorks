@@ -193,6 +193,27 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="_Archive\templated-roadtrip\assets\css\font-awesome.min.css" />
+    <Content Include="_Archive\templated-roadtrip\assets\css\main.css" />
+    <Content Include="_Archive\templated-roadtrip\assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="_Archive\templated-roadtrip\assets\js\jquery.min.js" />
+    <Content Include="_Archive\templated-roadtrip\assets\js\jquery.scrollex.min.js" />
+    <Content Include="_Archive\templated-roadtrip\assets\js\jquery.scrolly.min.js" />
+    <Content Include="_Archive\templated-roadtrip\assets\js\main.js" />
+    <Content Include="_Archive\templated-roadtrip\assets\js\skel.min.js" />
+    <Content Include="_Archive\templated-roadtrip\assets\js\util.js" />
+    <Content Include="_Archive\templated-roadtrip\CREDITS.txt" />
+    <Content Include="_Archive\templated-roadtrip\elements.html" />
+    <Content Include="_Archive\templated-roadtrip\generic.html" />
+    <Content Include="_Archive\templated-roadtrip\images\banner.jpg" />
+    <Content Include="_Archive\templated-roadtrip\images\banner2.jpg" />
+    <Content Include="_Archive\templated-roadtrip\images\banner3.jpg" />
+    <Content Include="_Archive\templated-roadtrip\images\banner4.jpg" />
+    <Content Include="_Archive\templated-roadtrip\images\banner5.jpg" />
+    <Content Include="_Archive\templated-roadtrip\images\pic01.jpg" />
+    <Content Include="_Archive\templated-roadtrip\images\pic02.jpg" />
+    <Content Include="_Archive\templated-roadtrip\index.html" />
+    <Content Include="_Archive\templated-roadtrip\LICENSE.txt" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -253,6 +274,11 @@
     <Content Include="Views\RolesAdmin\Delete.cshtml" />
     <Content Include="Views\RolesAdmin\Create.cshtml" />
     <Content Include="Views\Account\DisplayEmail.cshtml" />
+    <Content Include="_Archive\templated-roadtrip\assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="_Archive\templated-roadtrip\assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="_Archive\templated-roadtrip\assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="_Archive\templated-roadtrip\assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="_Archive\templated-roadtrip\assets\fonts\FontAwesome.otf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
