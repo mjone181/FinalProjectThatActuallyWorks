@@ -1,0 +1,58 @@
+﻿@model FinalProjectThatWorks.DATA.EF.Reservation
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Reservation</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ReservationDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ReservationDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.WorkNotes)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.WorkNotes)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Car.CarName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Car.CarName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Location.LocationName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Location.LocationName)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ReservationId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>
