@@ -22,9 +22,20 @@ namespace FinalProjectThatWorks.UI.MVC
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/Content/js").Include(
+                    "~/Content/assets/js/jquery.min.js",
+                        "~/Content/assets/js/jquery.scrolly.min.js",
+                        "~/Content/assets/js/jquery.scrollex.min.js",
+                        "~/Content/assets/js/skel.min.js",
+                        "~/Content/assets/js/util.js",
+                        "~/Content/assets/js/main.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+            
+            bundles.Add(new StyleBundle("~/Content/assets").Include(                    
+                    "~/Content/assets/main.css"));
         }
     }
 }

@@ -23,8 +23,8 @@
     <!--Viewports-->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!--Style Sheets-->
-    <link rel="stylesheet" href="~/Content/assets/css/main.css" />
+    <!--Style Sheets-->           
+    <link rel="stylesheet" href="~/content/assets/css/main.css" />
 </head>
 <!--Head Section-->
 
@@ -53,7 +53,7 @@
         to the full filename of your image. This is used in each section to set
         the background image.
     -->
-    <section id="banner" class="bg-img" data-bg="~/Content/banner.jpg">
+    <section id="banner" class="bg-img" data-bg="banner.jpg">
         <div class="inner">
             <header>
                 <h1>This is Road Trip</h1>
@@ -111,8 +111,8 @@
     <script src="~/Content/assets/js/jquery.scrollex.min.js"></script>
     <script src="~/Content/assets/js/skel.min.js"></script>
     <script src="~/Content/assets/js/util.js"></script>
-    <script src="~/Content/assets/js/main.js"></script>
-
+    <script src="~/Content/assets/js/main.js"></script>    
+    @RenderSection("scripts", required: false)
 </body>
 <!--Body Section-->
 </html>
