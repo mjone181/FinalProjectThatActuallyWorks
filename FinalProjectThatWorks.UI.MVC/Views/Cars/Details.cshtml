@@ -1,74 +1,66 @@
 ﻿@model FinalProjectThatWorks.DATA.EF.Car
 
 @{
-    Layout = null;
+    ViewBag.Title = "Details";
 }
 
-<!DOCTYPE html>
+<h2>Details</h2>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
-    <div>
-        <h4>Car</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.CarName)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.CarName)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.CarPhoto)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.CarPhoto)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.SpecialNotes)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.SpecialNotes)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.IsActive)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.IsActive)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.DateAdded)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.DateAdded)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.UserDetail.FirstName)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.UserDetail.FirstName)
-            </dd>
-    
-        </dl>
-    </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.OwnerAssetId }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-</body>
-</html>
+<div>
+    <h4>Car</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CarName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarPhoto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarPhoto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SpecialNotes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SpecialNotes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsActive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateAdded)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateAdded)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserDetail.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserDetail.FirstName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OwnerAssetId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
