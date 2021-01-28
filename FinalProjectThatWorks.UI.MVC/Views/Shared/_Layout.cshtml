@@ -1,49 +1,119 @@
-﻿<!DOCTYPE html>
+﻿
+@{
+    Layout = null;
+}
+
+<!--Begin Document-->
+<!DOCTYPE HTML>
+<!--
+    Road Trip by TEMPLATED
+    templated.co at templatedco
+    Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
 <html>
+
+<!--Head Section-->
 <head>
+    <!--Page Title-->
+    <title>@ViewBag.Title</title>
+
+    <!--Character Sets-->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
 
+    <!--Viewports-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--Style Sheets-->
+    <link rel="stylesheet" href="~/Content/assets/css/main.css" />
 </head>
+<!--Head Section-->
+
+<!--Body Section-->
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", null, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
 
-                    @if (Request.IsAuthenticated && User.IsInRole("Admin")) {
-                        <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
-                        <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
-                    }
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
+    <!-- Header -->
+    <header id="header">
+        <div class="logo"><a href="index.html">Road Trip <span>by TEMPLATED</span></a></div>
+        <a href="#menu"><span>Menu</span></a>
+    </header>
+
+    <!-- Nav -->
+    <nav id="menu">
+        <ul class="links">
+            <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+            <!--Broken links for now-->
+            @*<li><a href="generic.html">Generic</a></li>*@
+            @*<li><a href="elements.html">Elements</a></li>*@
+        </ul>
+    </nav>
+
+    <!-- Banner -->
+    <!--
+        Note: To show a background image, set the "data-bg" attribute below
+        to the full filename of your image. This is used in each section to set
+        the background image.
+    -->
+    <section id="banner" class="bg-img" data-bg="~/Content/banner.jpg">
+        <div class="inner">
+            <header>
+                <h1>This is Road Trip</h1>
+            </header>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+        <a href="#one" class="more">Learn More</a>
+    </section>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <!--Main Content Section-->
+    @RenderBody()
+    <!--Main Content Section-->
+
+    <!--Footer Content-->
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+
+            <h2>Contact Us</h2>
+
+            <form action="#" method="post">
+
+                <div class="field half first">
+                    <label for="name">Name</label>
+                    <input name="name" id="name" type="text" placeholder="Name">
+                </div>
+                <div class="field half">
+                    <label for="email">Email</label>
+                    <input name="email" id="email" type="email" placeholder="Email">
+                </div>
+                <div class="field">
+                    <label for="message">Message</label>
+                    <textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
+                </div>
+                <ul class="actions">
+                    <li><input value="Send Message" class="button alt" type="submit"></li>
+                </ul>
+            </form>
+
+            <ul class="icons">
+                <li><a href="#" class="icon round fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon round fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon round fa-instagram"><span class="label">Instagram</span></a></li>
+            </ul>
+
+            <div class="copyright">
+                &copy; Mack Jones 2021  Template Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="~/Content/assets/js/jquery.min.js"></script>
+    <script src="~/Content/assets/js/jquery.scrolly.min.js"></script>
+    <script src="~/Content/assets/js/jquery.scrollex.min.js"></script>
+    <script src="~/Content/assets/js/skel.min.js"></script>
+    <script src="~/Content/assets/js/util.js"></script>
+    <script src="~/Content/assets/js/main.js"></script>
+
 </body>
+<!--Body Section-->
 </html>
+<!--End Document-->
