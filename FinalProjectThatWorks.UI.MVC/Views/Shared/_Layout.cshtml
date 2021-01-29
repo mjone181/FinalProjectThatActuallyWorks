@@ -23,8 +23,9 @@
     <!--Viewports-->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!--Style Sheets-->           
-    <link rel="stylesheet" href="~/content/assets/css/main.css" />
+    <!--Style Sheets-->
+    <link rel="stylesheet" href="~/Content/assets/css/main.css" />
+    <link rel="stylesheet" href="~/Content/assets/css/custom.css"/>
 </head>
 <!--Head Section-->
 
@@ -34,16 +35,17 @@
     <!-- Header -->
     <header id="header">
         <div class="logo"><a href="index.html">Auto Repair Application <span>by Mack Jones</span></a></div>
-        <a href="#menu"><span>Menu</span></a>
+        <a href="#menu"><span>Menu</span></a>        
     </header>
 
     <!-- Nav -->
     <nav id="menu">
         <ul class="links">
-            <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+            <li><a href="@Url.Action("Index", "Home")">Home</a></li>            
             <!--Broken links for now-->
             @*<li><a href="generic.html">Generic</a></li>*@
             @*<li><a href="elements.html">Elements</a></li>*@
+            @Html.Partial("_LoginPartial")
         </ul>
     </nav>
 
@@ -53,13 +55,13 @@
         to the full filename of your image. This is used in each section to set
         the background image.
     -->
-    <section id="banner" class="bg-img" data-bg="banner.jpg">
+    <section id="banner" class="bg-img">
         <div class="inner">
             <header>
                 <h1>Welcome to Our Application</h1>
             </header>
         </div>
-        <a href="#one" class="more">Learn More</a>
+        <a href="#one" class="more">Learn More</a>        
     </section>
 
     <!--Main Content Section-->
