@@ -34,35 +34,23 @@
 
     <!-- Header -->
     <header id="header">
-        <div class="logo"><a href="index.html">Auto Repair Application <span>by Mack Jones</span></a></div>
+        <div class="logo"><a href="index.html"></a></div>
         <a href="#menu"><span>Menu</span></a>        
     </header>
 
     <!-- Nav -->
     <nav id="menu">
         <ul class="links">
-            <li><a href="@Url.Action("Index", "Home")">Home</a></li>            
-            <!--Broken links for now-->
-            @*<li><a href="generic.html">Generic</a></li>*@
-            @*<li><a href="elements.html">Elements</a></li>*@
+            <li><a href="@Url.Action("Index", "Home")">Home</a></li>     
+            <li><a href="@Url.Action("Index", "Reservations")">Reservations</a></li>
+            <li><a href="@Url.Action("Index", "Locations")">Locations</a></li>
+            <li><a href="@Url.Action("Index", "Cars")"></a>Cars</li>
+            <li><a href="@Url.Action("Index", "UserDetails")">User Details</a></li>
             @Html.Partial("_LoginPartial")
         </ul>
     </nav>
 
-    <!-- Banner -->
-    <!--
-        Note: To show a background image, set the "data-bg" attribute below
-        to the full filename of your image. This is used in each section to set
-        the background image.
-    -->
-    <section id="banner" class="bg-img">
-        <div class="inner">
-            <header>
-                <h1>Welcome to Our Application</h1>
-            </header>
-        </div>
-        <a href="#one" class="more">Learn More</a>        
-    </section>
+    
 
     <!--Main Content Section-->
     @RenderBody()
