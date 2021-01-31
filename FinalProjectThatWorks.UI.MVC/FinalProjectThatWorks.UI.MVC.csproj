@@ -182,6 +182,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Models\CarsViewModel.cs" />
+    <Compile Include="Models\ContactViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LocationsViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -274,7 +275,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\Original_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -333,6 +333,8 @@
     <Content Include="Views\Cars\Details.cshtml" />
     <Content Include="Views\Cars\Edit.cshtml" />
     <Content Include="Views\Cars\Index.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\EmailConfirmation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
