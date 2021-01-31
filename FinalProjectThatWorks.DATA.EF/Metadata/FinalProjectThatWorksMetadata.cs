@@ -6,17 +6,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinalProjectThatWorks.DATA.EF.Metadata
+namespace FinalProjectThatWorks.DATA.EF
 {
     //Metadata for all of the tables within the project.
-    public class FinalProjectThatWorksMetadata
-    {
-        //Reservation Metadata
-        #region Reservation
 
+    //Reservation Metadata
+    #region Reservation
+    public class ReservationMetadata
+    {
         //Foreign Key
         //Not supposed to be viewable. No Metadata requried.
-        public int ReservationId { get; set; }       
+        public int ReservationId { get; set; }
         public int OwnerAssetId { get; set; }
         public int LocationId { get; set; }
 
@@ -32,13 +32,21 @@ namespace FinalProjectThatWorks.DATA.EF.Metadata
         [StringLength(300, ErrorMessage = "*Must be 300 characters or less.")]
         [UIHint("MultilineText")]
         public string WorkNotes { get; set; }
-        #endregion
+    }
 
-        //Location Metadata
-        #region Location
+    [MetadataType(typeof(ReservationMetadata))]
+    public partial class Reservation
+    {
 
+    }
+    #endregion
+
+    //Location Metadata
+    #region Location
+    public class LocationMetadata
+    {
         //Foreign Key
-        //public int LocationId { get; set; }
+        public int LocationId { get; set; }
 
         //LocationName formatting. Required field.
         [Display(Name = "Location Name:")]
@@ -74,12 +82,20 @@ namespace FinalProjectThatWorks.DATA.EF.Metadata
         [Display(Name = "Reservation Limit:")]
         [Required(ErrorMessage = "*Limit is required.")]
         public byte ReservationLimit { get; set; }
-        #endregion
+    }
+    [MetadataType(typeof(LocationMetadata))]
+    public partial class Location
+    {
 
-        //Car Metadata
-        #region Car
+    }
+    #endregion
+
+    //Car Metadata
+    #region Car
+    public class CarMetadata
+    {
         //Foreign Key
-        //public int OwnerAssetId { get; set; }
+        public int OwnerAssetId { get; set; }
 
         //CarName formatting. Required field.
         [Display(Name = "Car Name:")]
@@ -114,11 +130,18 @@ namespace FinalProjectThatWorks.DATA.EF.Metadata
         //DateAdded formatting. Required field.
         [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public System.DateTime DateAdded { get; set; }
-        #endregion
+    }
+    [MetadataType(typeof(CarMetadata))]
+    public partial class Car
+    {
 
-        //UserDetail Metadata
-        #region UserDetail
+    }
+    #endregion
 
+    //UserDetail Metadata
+    #region UserDetail
+    public class UserDetailMetadata
+    {
         //Foreign key
         //Not supposed to be viewable. No Metadata requried.
         public string UserId { get; set; }
@@ -134,6 +157,12 @@ namespace FinalProjectThatWorks.DATA.EF.Metadata
         [Required(ErrorMessage = "*Last Name is required.")]
         [StringLength(50, ErrorMessage = "*Must be 50 characters or less.")]
         public string LastName { get; set; }
-        #endregion
     }
+    [MetadataType(typeof(UserDetailMetadata))]
+    public partial class UserDetail
+    {
+
+    }
+    #endregion
 }
+
