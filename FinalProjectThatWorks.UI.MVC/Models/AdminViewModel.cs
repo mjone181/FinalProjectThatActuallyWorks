@@ -20,7 +20,7 @@ namespace FinalProjectThatWorks.UI.MVC.Models
         [Display(Name = "Email")]
         [EmailAddress]
         public string Email { get; set; }
-
+        
         public IEnumerable<SelectListItem> RolesList { get; set; }
     }
 }

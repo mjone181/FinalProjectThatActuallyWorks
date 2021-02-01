@@ -25,37 +25,40 @@
 
     <!--Style Sheets-->
     <link rel="stylesheet" href="~/Content/assets/css/main.css" />
-    <link rel="stylesheet" href="~/Content/assets/css/custom.css"/>
+    <link rel="stylesheet" href="~/Content/assets/css/custom.css" />
 </head>
 <!--Head Section-->
-
 <!--Body Section-->
 <body>
 
     <!-- Header -->
     <header id="header">
         <div class="logo"><a href="index.html"></a></div>
-        <a href="#menu"><span>Menu</span></a>        
+        <a href="#menu"><span>Menu</span></a>
     </header>
 
     <!-- Nav -->
     <nav id="menu">
         <ul class="links">
-            <li><a href="@Url.Action("Index", "Home")">Home</a></li>     
+            <li><a href="@Url.Action("Index", "Home")">Home</a></li>
             <li><a href="@Url.Action("Index", "Reservations")">Reservations</a></li>
             <li><a href="@Url.Action("Index", "Locations")">Locations</a></li>
-            <li><a href="@Url.Action("Index", "Cars")"></a>Cars</li>
+            <li><a href="@Url.Action("Index", "Cars")">Cars</a></li>
             <li><a href="@Url.Action("Index", "UserDetails")">User Details</a></li>
+            @if (User.IsInRole("Admin"))
+            {
+                <li><a href="@Url.Action("Index", "UsersAdmin")">UsersAdmin</a></li>
+                <li><a href="@Url.Action("Index", "RolesAdmin")">RolesAdmin</a></li>
+            }
             @Html.Partial("_LoginPartial")
         </ul>
     </nav>
 
-    
+
 
     <!--Main Content Section-->
     @RenderBody()
     <!--Main Content Section-->
-
     <!--Footer Content-->
     <!-- Footer -->
     <footer id="footer">
@@ -65,22 +68,22 @@
 
             @*<form action="#" method="post">
 
-                <div class="field half first">
-                    <label for="name">Name</label>
-                    <input name="name" id="name" type="text" placeholder="Name">
-                </div>
-                <div class="field half">
-                    <label for="email">Email</label>
-                    <input name="email" id="email" type="email" placeholder="Email">
-                </div>
-                <div class="field">
-                    <label for="message">Message</label>
-                    <textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
-                </div>
-                <ul class="actions">
-                    <li><input value="Send Message" class="button alt" type="submit"></li>
-                </ul>
-            </form>*@
+                    <div class="field half first">
+                        <label for="name">Name</label>
+                        <input name="name" id="name" type="text" placeholder="Name">
+                    </div>
+                    <div class="field half">
+                        <label for="email">Email</label>
+                        <input name="email" id="email" type="email" placeholder="Email">
+                    </div>
+                    <div class="field">
+                        <label for="message">Message</label>
+                        <textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
+                    </div>
+                    <ul class="actions">
+                        <li><input value="Send Message" class="button alt" type="submit"></li>
+                    </ul>
+                </form>*@
 
             <ul class="icons">
                 <li><a href="#" class="icon round fa-twitter"><span class="label">Twitter</span></a></li>
@@ -101,7 +104,7 @@
     <script src="~/Content/assets/js/jquery.scrollex.min.js"></script>
     <script src="~/Content/assets/js/skel.min.js"></script>
     <script src="~/Content/assets/js/util.js"></script>
-    <script src="~/Content/assets/js/main.js"></script>    
+    <script src="~/Content/assets/js/main.js"></script> 
     @RenderSection("scripts", required: false)
 </body>
 <!--Body Section-->

@@ -79,6 +79,16 @@ namespace FinalProjectThatWorks.UI.MVC.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Display(Name = "First Name:")]
+        [Required(ErrorMessage = "*First Name is required.")]
+        [StringLength(50, ErrorMessage = "*Must be 50 characters or less.")]
+        public string FirstName { get; set; }
+
+        [Display(Name = "Last Name:")]
+        [Required(ErrorMessage = "*Last Name is required.")]
+        [StringLength(50, ErrorMessage = "*Must be 50 characters or less.")]
+        public string LastName { get; set; }
     }
 
     public class ResetPasswordViewModel
