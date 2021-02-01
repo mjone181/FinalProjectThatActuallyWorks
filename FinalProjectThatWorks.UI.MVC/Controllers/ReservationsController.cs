@@ -53,6 +53,34 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
+                //If user is not an Admin Role
+                if (!User.IsInRole("Admin"))
+                {
+
+                    //get the reservation limit for the current location (returns an int)
+                    int currentLimit = db.Locations.Where(x => x.LocationId == reservation.LocationId).Select(x => x.ReservationLimit).Single();
+
+                    //find number of reservations at that location for that date (returns an int)
+                    int numberOfReservations = db.Reservations.Where(x => x.LocationId == reservation.LocationId &&
+                    x.ReservationDate == reservation.ReservationDate).Count();
+
+                    //check if reservation limit is less than the number of reservations (if statement)
+                    if (numberOfReservations <= currentLimit)
+                    {
+                        //if less than limit add reservation, save changes, return to Index
+                        //Add a new Reservation to the database with a View if Model is valid
+                        db.Reservations.Add(reservation);
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                    //else (value is NOT less than limit) - Add a Viewbag message that says spots are no longer available.
+                    else
+                    {
+                        ViewBag.Message("Sorry! Spots are no longer available.");
+                        return View(reservation);
+                    }
+
+                }
                 db.Reservations.Add(reservation);
                 db.SaveChanges();
                 return RedirectToAction("Index");
