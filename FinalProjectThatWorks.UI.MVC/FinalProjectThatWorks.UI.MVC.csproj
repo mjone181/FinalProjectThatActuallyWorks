@@ -375,7 +375,7 @@
     <Content Include="Content\custom.css" />
     <Content Include="Content\elements.html" />
     <Content Include="Content\generic.html" />
-    <Content Include="Content\GenericCar.jpg" />
+    <Content Include="Content\assets\img\GenericCar.jpg" />
     <Content Include="Content\index.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

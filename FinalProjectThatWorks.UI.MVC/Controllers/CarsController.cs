@@ -76,10 +76,10 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
                         imgName = Guid.NewGuid() + ext;
 
                         //save to the webserver
-                       CarPhoto.SaveAs(Server.MapPath("~/Content/images/" + imgName));
+                       CarPhoto.SaveAs(Server.MapPath("~/Content/img/" + imgName));
 
                         //Create variables to resize image.
-                        string savePath = Server.MapPath("~/Content/images/");
+                        string savePath = Server.MapPath("~/Content/img/");
 
                         Image convertedImage = Image.FromStream(CarPhoto.InputStream);
 
@@ -152,10 +152,10 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
                     imgName = Guid.NewGuid() + ext;
 
                     //Save to the webserver
-                    CarPhoto.SaveAs(Server.MapPath("~/Content/images/" + imgName));
+                    CarPhoto.SaveAs(Server.MapPath("~/Content/imag/" + imgName));
 
                     //Create variables to resize image.
-                    string savePath = Server.MapPath("~/Content/images/");
+                    string savePath = Server.MapPath("~/Content/img/");
 
                     Image convertedImage = Image.FromStream(CarPhoto.InputStream);
 
@@ -168,7 +168,7 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
                     if (car.CarPhoto != null && car.CarPhoto != "noImage.png")
                     {
                         //Remove the original file
-                        string path = Server.MapPath("~/Content/images/");
+                        string path = Server.MapPath("~/Content/img/");
                         UploadUtility.Delete(path, car.CarPhoto);
                     }
 
@@ -213,7 +213,7 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
             if (car.CarPhoto != null && car.CarPhoto != "GenericCar.jpg")
             {
                 //Remove the original file from the edit view.
-                string path = Server.MapPath("~/Content/images/");
+                string path = Server.MapPath("~/Content/img/");
                 UploadUtility.Delete(path, car.CarPhoto);
             }
 
