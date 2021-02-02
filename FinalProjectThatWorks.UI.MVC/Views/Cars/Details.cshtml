@@ -23,7 +23,8 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CarPhoto)
+            @*@Html.DisplayFor(model => model.CarPhoto)*@
+            <img src="~/Content/images/@Model.CarPhoto" alt="@Model.CarName" />
         </dd>
 
         <dt>
