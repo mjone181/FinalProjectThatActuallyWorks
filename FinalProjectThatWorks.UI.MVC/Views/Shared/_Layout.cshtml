@@ -25,18 +25,18 @@
     <meta name="author" content="">
 
     <!--Favicon-->
-    <link rel="shortcut icon" href="assets/img/favicon.ico">
+    <link rel="shortcut icon" href="~/Content/assets/img/favicon.ico">
 
     <!--Page Title-->
     <title>Car Repair Application</title>
 
     <!--Style Sheets-->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
-    <link href="assets/css/animate.css" rel="stylesheet">
-    <link href="assets/css/prettyPhoto.css" rel="stylesheet">
-    <link href="assets/css/pe-icons.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="~/Content/assets/css/animate.css" rel="stylesheet">
+    <link href="~/Content/assets/css/prettyPhoto.css" rel="stylesheet">
+    <link href="~/Content/assets/css/pe-icons.css" rel="stylesheet">
+    <link href="~/Content/assets/css/style.css" rel="stylesheet">
+    <link href="~/Content/assets/css/font-awesome.min.css" rel="stylesheet">
     <!--Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Cabin:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
@@ -45,135 +45,78 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/modernizr.custom.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            jQuery('#headerwrap').backstretch([
-                "assets/img/bg/bg1.jpg",
-                "assets/img/bg/bg2.jpg",
-                "assets/img/bg/bg3.jpg"
-            ], { duration: 8000, fade: 500 });
-
-            // Map Position And Settings
-            $("#mapwrapper").gMap({
-                controls: false,
-                scrollwheel: false,
-                markers: [{
-                    latitude: 40.7566,
-                    longitude: -73.9863,
-                    icon: {
-                        image: "assets/img/marker.png",
-                        iconsize: [44, 44],
-                        iconanchor: [12, 46],
-                        infowindowanchor: [12, 0]
-                    }
-                }],
-                icon: {
-                    image: "assets/img/marker.png",
-                    iconsize: [26, 46],
-                    iconanchor: [12, 46],
-                    infowindowanchor: [12, 0]
-                },
-                latitude: 40.7566,
-                longitude: -73.9863,
-                zoom: 14
-            });
-        });
-    </script>
+    <script src="~/Content/assets/js/jquery.js"></script>
+    <script src="~/Content/assets/js/modernizr.custom.js"></script>    
 </head>
 <!--Head Section-->
 <!--Body Section-->
 <body>
-    <!-- Header -->
-    <header id="header">
-        <div class="logo"><a href="index.html"></a></div>
-        <a href="#menu"><span>Menu</span></a>
-    </header>
+    <!-- Preloader -->
+    <div id="preloader"></div>  
 
     <!-- Nav -->
-    <nav id="menu">
-        <ul class="links">
-            <li><a href="@Url.Action("Index", "Home")">Home</a></li>
-            @if (User.IsInRole("Employee"))
-            {
-                <li><a href="@Url.Action("Index", "Reservations")">Reservations</a></li>
-                <li><a href="@Url.Action("Index", "Locations")">Locations</a></li>
-                <li><a href="@Url.Action("Index", "Cars")">Cars</a></li>
-            }
-
-            @if (User.IsInRole("Admin"))
-            {
-                <li><a href="@Url.Action("Index", "Reservations")">Reservations</a></li>
-                <li><a href="@Url.Action("Index", "Locations")">Locations</a></li>
-                <li><a href="@Url.Action("Index", "UsersAdmin")">UsersAdmin</a></li>
-                <li><a href="@Url.Action("Index", "Cars")">Cars</a></li>
-                <li><a href="@Url.Action("Index", "UserDetails")">User Details</a></li>
-                <li><a href="@Url.Action("Index", "RolesAdmin")">RolesAdmin</a></li>
-            }
-            @if (User.IsInRole("Owner"))
-            {
-                <li><a href="@Url.Action("Index", "Reservations")">Reservations</a></li>
-                <li><a href="@Url.Action("Index", "Locations")">Locations</a></li>
-                <li><a href="@Url.Action("Index", "Cars")">Cars</a></li>
-            }
-            @Html.Partial("_LoginPartial")
-        </ul>
+    <nav class="menu" id="theMenu">
+        <div class="menu-wrap">
+            <i class="fa fa-bars menu-close"></i>
+            <div id="menu-logo">
+                <h2><span class="pe-7s-chat logo-icon"></span> Quote</h2>
+            </div>
+            <ul id="main-menu">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home <i class="fa fa-home menu-icon"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                        @if (User.IsInRole("Employee"))
+                        {
+                            <li><a href="@Url.Action("Index", "Reservations")">Reservations</a></li>
+                            <li><a href="@Url.Action("Index", "Locations")">Locations</a></li>
+                            <li><a href="@Url.Action("Index", "Cars")">Cars</a></li>
+                        }
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li><a href="@Url.Action("Index", "Reservations")">Reservations</a></li>
+                            <li><a href="@Url.Action("Index", "Locations")">Locations</a></li>
+                            <li><a href="@Url.Action("Index", "Cars")">Cars</a></li>
+                            <li><a href="@Url.Action("Index", "UserDetails")">User Details</a></li>
+                            <li><a href="@Url.Action("Index", "UsersAdmin")">UsersAdmin</a></li>
+                            <li><a href="@Url.Action("Index", "RolesAdmin")">RolesAdmin</a></li>
+                        }
+                        @if (User.IsInRole("Owner"))
+                        {
+                            <li><a href="@Url.Action("Index", "Reservations")">Reservations</a></li>
+                            <li><a href="@Url.Action("Index", "Locations")">Locations</a></li>
+                            <li><a href="@Url.Action("Index", "Cars")">Cars</a></li>
+                        }
+                        @Html.Partial("_LoginPartial")
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </nav>
-
-
 
     <!--Main Content Section-->
     @RenderBody()
     <!--Main Content Section-->
     <!--Footer Content-->
     <!-- Footer -->
-    <footer id="footer">
-        <div class="inner">
-
-            <h2>Contact Us</h2>
-
-            @*<form action="#" method="post">
-
-                    <div class="field half first">
-                        <label for="name">Name</label>
-                        <input name="name" id="name" type="text" placeholder="Name">
-                    </div>
-                    <div class="field half">
-                        <label for="email">Email</label>
-                        <input name="email" id="email" type="email" placeholder="Email">
-                    </div>
-                    <div class="field">
-                        <label for="message">Message</label>
-                        <textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
-                    </div>
-                    <ul class="actions">
-                        <li><input value="Send Message" class="button alt" type="submit"></li>
-                    </ul>
-                </form>*@
-
-            <ul class="icons">
-                <li><a href="#" class="icon round fa-twitter"><span class="label">Twitter</span></a></li>
-                <li><a href="#" class="icon round fa-facebook"><span class="label">Facebook</span></a></li>
-                <li><a href="#" class="icon round fa-instagram"><span class="label">Instagram</span></a></li>
-            </ul>
-
-            <div class="copyright">
-                &copy; Mack Jones 2021  Template Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
+    <div id="footerwrap">
+        <div id="footer-copyright">
+            <div class="container">
+                &copy; 2021 Mack Jones | Template By Distinctive Themes
             </div>
-
         </div>
-    </footer>
+    </div>
+
+    <a id="gototop" class="gototop no-display" href="#"><i class="fa fa-angle-up"></i></a>
 
     <!-- Scripts -->
-    <script src="~/Content/assets/js/jquery.min.js"></script>
-    <script src="~/Content/assets/js/jquery.scrolly.min.js"></script>
-    <script src="~/Content/assets/js/jquery.scrollex.min.js"></script>
-    <script src="~/Content/assets/js/skel.min.js"></script>
-    <script src="~/Content/assets/js/util.js"></script>
-    <script src="~/Content/assets/js/main.js"></script>
+    <script src="~/Content/assets/js/bootstrap.min.js"></script>
+    <script src="~/Content/assets/js/plugins.js"></script>
+    <script src="~/Content/assets/js/imagesloaded.js"></script>
+    <script src="~/Content/assets/js/prettyPhoto.js"></script>
+    <script src="~/Content/assets/js/init.js"></script>
     @RenderSection("scripts", required: false)
-    </body>
+</body>
     <!--Body Section-->
 </html>
 <!--End Document-->
