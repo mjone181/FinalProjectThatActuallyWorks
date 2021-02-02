@@ -38,7 +38,7 @@
                 @*@Html.EditorFor(model => model.CarPhoto, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CarPhoto, "", new { @class = "text-danger" })*@
                 Existing Image: <img width="150" src="@Url.Content("~/Content/images/" + @Model.CarPhoto)" /><br /><br />
-                Change Image: <input type="file" style="display:inline" name="assetphoto" />
+                Change Image: <input type="file" style="display:inline" name="carphoto" />
             </div>
         </div>
 

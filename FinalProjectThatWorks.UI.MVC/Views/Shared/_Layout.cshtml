@@ -41,14 +41,27 @@
     <nav id="menu">
         <ul class="links">
             <li><a href="@Url.Action("Index", "Home")">Home</a></li>
-            <li><a href="@Url.Action("Index", "Reservations")">Reservations</a></li>
-            <li><a href="@Url.Action("Index", "Locations")">Locations</a></li>
-            <li><a href="@Url.Action("Index", "Cars")">Cars</a></li>
-            <li><a href="@Url.Action("Index", "UserDetails")">User Details</a></li>
+            @if (User.IsInRole("Employee"))
+            {
+                <li><a href="@Url.Action("Index", "Reservations")">Reservations</a></li>
+                <li><a href="@Url.Action("Index", "Locations")">Locations</a></li>
+                <li><a href="@Url.Action("Index", "Cars")">Cars</a></li>
+            }
+
             @if (User.IsInRole("Admin"))
             {
+                <li><a href="@Url.Action("Index", "Reservations")">Reservations</a></li>
+                <li><a href="@Url.Action("Index", "Locations")">Locations</a></li>
                 <li><a href="@Url.Action("Index", "UsersAdmin")">UsersAdmin</a></li>
+                <li><a href="@Url.Action("Index", "Cars")">Cars</a></li>
+                <li><a href="@Url.Action("Index", "UserDetails")">User Details</a></li>
                 <li><a href="@Url.Action("Index", "RolesAdmin")">RolesAdmin</a></li>
+            }
+            @if (User.IsInRole("Owner"))
+            {
+                <li><a href="@Url.Action("Index", "Reservations")">Reservations</a></li>
+                <li><a href="@Url.Action("Index", "Locations")">Locations</a></li>
+                <li><a href="@Url.Action("Index", "Cars")">Cars</a></li>
             }
             @Html.Partial("_LoginPartial")
         </ul>
