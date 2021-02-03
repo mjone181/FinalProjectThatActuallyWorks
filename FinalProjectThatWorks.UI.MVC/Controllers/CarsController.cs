@@ -39,6 +39,8 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
             return View(car);
         }
 
+        //Only available in Owner Role.
+        [Authorize(Roles = "Owner")]
         // GET: Cars/Create
         public ActionResult Create()
         {
@@ -46,6 +48,8 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
             return View();
         }
 
+        //Only available in Owner Role.
+        [Authorize(Roles = "Owner")]
         // POST: Cars/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -76,10 +80,10 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
                         imgName = Guid.NewGuid() + ext;
 
                         //save to the webserver
-                       CarPhoto.SaveAs(Server.MapPath("~/Content/img/" + imgName));
+                       CarPhoto.SaveAs(Server.MapPath("~/Content/assets/img/" + imgName));
 
                         //Create variables to resize image.
-                        string savePath = Server.MapPath("~/Content/img/");
+                        string savePath = Server.MapPath("~/Content/assets/img/");
 
                         Image convertedImage = Image.FromStream(CarPhoto.InputStream);
 
@@ -152,10 +156,10 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
                     imgName = Guid.NewGuid() + ext;
 
                     //Save to the webserver
-                    CarPhoto.SaveAs(Server.MapPath("~/Content/imag/" + imgName));
+                    CarPhoto.SaveAs(Server.MapPath("~/Content/assets/img/" + imgName));
 
                     //Create variables to resize image.
-                    string savePath = Server.MapPath("~/Content/img/");
+                    string savePath = Server.MapPath("~/Content/assets/img/");
 
                     Image convertedImage = Image.FromStream(CarPhoto.InputStream);
 
@@ -168,7 +172,7 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
                     if (car.CarPhoto != null && car.CarPhoto != "noImage.png")
                     {
                         //Remove the original file
-                        string path = Server.MapPath("~/Content/img/");
+                        string path = Server.MapPath("~/Content/assets/img/");
                         UploadUtility.Delete(path, car.CarPhoto);
                     }
 
@@ -188,6 +192,8 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
             return View(car);
         }
 
+        //Only available in Admin Role.
+        [Authorize(Roles = "Admin")]
         // GET: Cars/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -203,6 +209,8 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
             return View(car);
         }
 
+        //Only available in Admin Role.
+        [Authorize(Roles = "Admin")]
         // POST: Cars/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -213,7 +221,7 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
             if (car.CarPhoto != null && car.CarPhoto != "GenericCar.jpg")
             {
                 //Remove the original file from the edit view.
-                string path = Server.MapPath("~/Content/img/");
+                string path = Server.MapPath("~/Content/assets/img/");
                 UploadUtility.Delete(path, car.CarPhoto);
             }
 

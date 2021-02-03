@@ -35,12 +35,14 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
             return View(location);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Locations/Create
         public ActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: Locations/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -89,6 +91,7 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
             return View(location);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Locations/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -104,6 +107,7 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
             return View(location);
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: Locations/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

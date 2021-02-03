@@ -126,6 +126,7 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
             return View(reservation);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Reservations/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -141,6 +142,7 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
             return View(reservation);
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: Reservations/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
