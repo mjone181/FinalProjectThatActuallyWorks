@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Locations</h2>
 
 @if (User.IsInRole("Admin"))
 {
@@ -57,10 +57,12 @@
                 @Html.DisplayFor(modelItem => item.ReservationLimit)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.LocationId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.LocationId }) |
+
+                @Html.ActionLink("Details", "Details", new { id = item.LocationId }) 
                 @if (User.IsInRole("Admin"))
                 {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.LocationId })
+                    <br />
                     @Html.ActionLink("Delete", "Delete", new { id = item.LocationId })
                 }
             </td>

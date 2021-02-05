@@ -69,7 +69,7 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
                     throw;
                 }
 
-                return View("EmailConfirmation");
+                return View("EmailConfirmation", cvm);
             }
             return View(cvm);
 

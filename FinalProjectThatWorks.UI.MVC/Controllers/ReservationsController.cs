@@ -36,6 +36,9 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
             return View(reservation);
         }
 
+        //Only available in Admin and Employee Roles.
+        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Owner")]
         // GET: Reservations/Create
         public ActionResult Create()
         {
@@ -44,6 +47,9 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
             return View();
         }
 
+        //Only available in Admin and Employee Roles.
+        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Owner")]
         // POST: Reservations/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -91,6 +97,9 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
             return View(reservation);
         }
 
+        //Only available in Admin and Employee Roles.
+        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Employee")]
         // GET: Reservations/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -108,6 +117,9 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
             return View(reservation);
         }
 
+        //Only available in Admin and Employee Roles.
+        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Employee")]
         // POST: Reservations/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -126,7 +138,8 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
             return View(reservation);
         }
 
-        [Authorize(Roles = "Admin")]
+        //Only available in Admin Role.
+        [Authorize(Roles = "Admin")]        
         // GET: Reservations/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -142,7 +155,8 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
             return View(reservation);
         }
 
-        [Authorize(Roles = "Admin")]
+        //Only available in Admin Role.
+        [Authorize(Roles = "Admin")]      
         // POST: Reservations/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

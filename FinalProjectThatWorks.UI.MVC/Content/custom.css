@@ -1,4 +1,27 @@
-﻿body {
+﻿/*Body Styling*/
+body {
     background-color: darkgray;
 }
 
+/*Main Content Styling*/
+#mainContent {
+    width: 80%;
+    margin: auto;
+    min-height: 650px;
+}
+
+#mainContent h2{
+    text-align: center;
+}
+
+/*Footer Styling*/
+footer{
+    text-align: center;
+    font-weight: 700;
+}
+
+/*Text Area Styling*/
+textarea{
+    min-height: 5em;
+    resize: none;
+}

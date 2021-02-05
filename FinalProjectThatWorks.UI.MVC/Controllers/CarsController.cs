@@ -10,6 +10,7 @@ using System.Web;
 using System.Web.Mvc;
 using FinalProjectThatWorks.DATA.EF;
 using FinalProjectThatWorks.UI.MVC.Utilties;
+using Microsoft.AspNet.Identity;
 
 namespace FinalProjectThatWorks.UI.MVC.Controllers
 {
@@ -20,10 +21,15 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
         // GET: Cars
         public ActionResult Index()
         {
+            string user = User.Identity.GetUserId();
             var cars = db.Cars.Include(c => c.UserDetail);
+            if (User.IsInRole("Owner"))
+            {
+                cars = cars.Where(c => c.OwnerId == user);
+            }
             return View(cars.ToList());
         }
-
+        
         // GET: Cars/Details/5
         public ActionResult Details(int? id)
         {
@@ -39,7 +45,8 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
             return View(car);
         }
 
-        //Only available in Owner Role.
+        //Only available in Owner and Admin Roles.
+        [Authorize(Roles = "Admin")]        
         [Authorize(Roles = "Owner")]
         // GET: Cars/Create
         public ActionResult Create()
@@ -48,7 +55,8 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
             return View();
         }
 
-        //Only available in Owner Role.
+        //Only available in Owner and Admin Roles.
+        [Authorize(Roles = "Admin")]
         [Authorize(Roles = "Owner")]
         // POST: Cars/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -94,7 +102,7 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
                     }
                     else
                     {
-                        imgName = "GenericCar.png";
+                        imgName = "GenericCar.jpg";
                     }
 
                     //No matter what, add imgName to the object.
@@ -114,6 +122,9 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
             return View(car);
         }
 
+        //Only available in Owner and Admin Roles.
+        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Owner")]
         // GET: Cars/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -130,6 +141,9 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
             return View(car);
         }
 
+        //Only available in Owner and Admin Roles.
+        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Owner")]
         // POST: Cars/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -169,7 +183,7 @@ namespace FinalProjectThatWorks.UI.MVC.Controllers
                     UploadUtility.ResizeImage(savePath, imgName, convertedImage, maxImgSize, maxThumbSize);
 
                     //Make sure you are not deleting your default image.
-                    if (car.CarPhoto != null && car.CarPhoto != "noImage.png")
+                    if (car.CarPhoto != null && car.CarPhoto != "GenericCar.jpg")
                     {
                         //Remove the original file
                         string path = Server.MapPath("~/Content/assets/img/");

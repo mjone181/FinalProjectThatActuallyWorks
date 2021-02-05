@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Cars</h2>
 <!--If user is in an Owner Role-->
 @if (User.IsInRole("Owner"))
 {
@@ -41,15 +41,16 @@
         </th>
         <th></th>
     </tr>
-
+    
     @foreach (var item in Model)
-    {
+    {        
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.CarName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CarPhoto)
+                @*@Html.DisplayFor(modelItem => item.CarPhoto)*@
+                <img src="~/Content/assets/img/t_@item.CarPhoto" alt="@item.CarName" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SpecialNotes)

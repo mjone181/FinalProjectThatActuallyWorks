@@ -5,11 +5,6 @@
 
 <!--Begin Document-->
 <!DOCTYPE HTML>
-<!--
-    Road Trip by TEMPLATED
-    templated.co at templatedco
-    Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
 <html>
 
 <!--Head Section-->
@@ -70,6 +65,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home <i class="fa fa-home menu-icon"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                        <li><a href="@Url.Action("Contact", "Home")">Contact Us</a></li>                        
                         @if (User.IsInRole("Employee"))
                         {
                             <li><a href="@Url.Action("Index", "Reservations")">Reservations</a></li>
@@ -91,6 +87,7 @@
                             <li><a href="@Url.Action("Index", "Locations")">Locations</a></li>
                             <li><a href="@Url.Action("Index", "Cars")">Cars</a></li>
                         }
+                        <li><a href="~/Content/MackJonesDocumentation.pdf">Project Documentation</a></li>
                         @Html.Partial("_LoginPartial")
                     </ul>
                 </li>
@@ -99,7 +96,9 @@
     </nav>
 
     <!--Main Content Section-->
-    @RenderBody()
+    <div id="mainContent">
+       @RenderBody()
+    </div>    
     <!--Main Content Section-->
     <!--Footer Content-->
     <!-- Footer -->
